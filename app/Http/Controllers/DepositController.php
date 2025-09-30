@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Deposit;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -11,9 +12,10 @@ class DepositController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $deposits = Deposit::paginate(15);
+        return view('deposits.index', ["deposits" => $deposits]);
     }
 
     /**
@@ -28,7 +30,7 @@ class DepositController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             "received_from" => "string|required|max:255|min:3",
