@@ -14,7 +14,7 @@ class DepositController extends Controller
      */
     public function index(): View
     {
-        $deposits = Deposit::paginate(15);
+        $deposits = Deposit::orderBy('created_at', 'desc')->paginate(20);
         return view('deposits.index', ["deposits" => $deposits]);
     }
 

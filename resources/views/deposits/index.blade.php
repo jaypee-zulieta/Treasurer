@@ -1,10 +1,10 @@
 <x-layout>
     <div class="p-10">
-        <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+        <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 shadow-2xl">
             <table class="table">
                 <thead class="bg-primary text-primary-content">
                     <tr>
-                        <th></th>
+                        <th class="min-w-32">Deposit number</th>
                         <th>Received From</th>
                         <th class="text text-right">Amount</th>
                         <th class="w-56">Date</th>
@@ -14,7 +14,7 @@
                 <tbody>
                     @foreach ($deposits as $deposit)
                         <tr class="hover:bg-base-300">
-                            <th>{{ $loop->index + 1 }}</th>
+                            <th class="text text-primary">{{ $deposit->id }}</th>
                             <td>
                                 {{ $deposit->received_from }}
                             </td>
@@ -23,7 +23,7 @@
                             <td class="opacity-50">{{ date('d F Y', strtotime($deposit->created_at)) }}</td>
                             <td>
                                 <a href="{{ route('deposits.show', [$deposit->id]) }}" class="link link-info">
-                                    View details
+                                    View
                                 </a>
                             </td>
                         </tr>
@@ -31,6 +31,10 @@
                 </tbody>
             </table>
         </div>
+        <div class="mt-10">
+            {{ $deposits->links() }}
+        </div>
+
     </div>
 
 </x-layout>
