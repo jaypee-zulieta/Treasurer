@@ -13,6 +13,6 @@ class DepositSeeder extends Seeder
     public function run(): void
     {
         //
-        Deposit::factory()->count(200)->create();
+        Deposit::factory()->count(1000)->create();
     }
 }
