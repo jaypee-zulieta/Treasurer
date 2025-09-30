@@ -41,7 +41,7 @@ class DepositController extends Controller
         ]);
 
         $deposit = Deposit::create($validated);
-        return back()->with(["success" => "Deposit " . $deposit->id . " successfully created."]);
+        return to_route('deposits.index')->with(["deposit-new" => $deposit->id]);
     }
 
     /**

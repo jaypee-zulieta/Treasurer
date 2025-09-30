@@ -1,7 +1,11 @@
 <x-layout>
     <div class="p-10">
+        @if (session('deposit-new'))
+            <x-alert-success>
+                Deposit {{ str_pad(session('deposit-new'), 5, '0', STR_PAD_LEFT) }} successfully made!
+            </x-alert-success>
+        @endif
         <div class="mb-10">
-
             <div class="stats shadow">
                 <div class="stat">
                     <div class="stat-figure text-success">
@@ -33,7 +37,14 @@
                 <tbody>
                     @foreach ($deposits as $deposit)
                         <tr class="hover:bg-base-300">
-                            <th class="text text-primary">{{ str_pad($deposit->id, 5, '0', STR_PAD_LEFT) }}</th>
+                            <th class="text text-primary">
+
+                                {{ str_pad($deposit->id, 5, '0', STR_PAD_LEFT) }}
+
+                                @if ($deposit->id == session('deposit-new'))
+                                    <div class="badge badge-soft badge-success">Latest</div>
+                                @endif
+                            </th>
                             <td>
                                 {{ $deposit->received_from }}
                             </td>

@@ -46,8 +46,6 @@
                     @foreach ($errors->all() as $error)
                         <x-alert-error>{{ $error }}</x-alert-error>
                     @endforeach
-                @elseif (session('success'))
-                    <x-alert-success>{{ session('success') }}</x-alert-success>
                 @endif
 
                 <div class="divider"></div>
