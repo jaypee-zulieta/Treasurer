@@ -12,9 +12,11 @@ class DepositController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $deposits = Deposit::orderBy('created_at', 'desc')->paginate(20);
+        $total = Deposit::sum('amount');
+        return view('deposits.index', ["deposits" => $deposits, "total" => $total]);
     }
 
     /**

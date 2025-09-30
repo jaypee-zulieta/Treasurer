@@ -13,6 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
+=======
+        $this->call([
+            DepositSeeder::class
+        ]);
+>>>>>>> deposits.index
         // User::factory(10)->create();
 
         User::factory()->create([
