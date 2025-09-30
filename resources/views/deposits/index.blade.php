@@ -1,5 +1,24 @@
 <x-layout>
     <div class="p-10">
+        <div class="mb-10">
+
+            <div class="stats shadow">
+                <div class="stat">
+                    <div class="stat-figure text-success">
+                        <x-cash></x-cash>
+                    </div>
+                    <div class="stat-title">Total amount deposited</div>
+                    <div class="stat-value text-success">
+                        <x-peso></x-peso> {{ number_format($total, 2, '.', ',') }}
+                    </div>
+                    <div class="stat-actions mt-2">
+                        <a href="{{ route('deposits.create') }}" class="btn btn-xs btn-success btn-block btn-soft">
+                            Deposit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 shadow-2xl">
             <table class="table">
                 <thead class="bg-primary text-primary-content">

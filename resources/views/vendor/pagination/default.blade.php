@@ -31,7 +31,8 @@
             @foreach ($elements as $element)
                 {{-- "Three Dots" Separator --}}
                 @if (is_string($element))
-                    <button class="disabled join-item btn" aria-disabled="true"><span>{{ $element }}</button></li>
+                    <button class="join-item btn btn-disabled" aria-disabled="true"><span>{{ $element }}</button>
+                    </li>
                 @endif
 
                 {{-- Array Of Links --}}
