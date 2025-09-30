@@ -14,7 +14,7 @@
                 <tbody>
                     @foreach ($deposits as $deposit)
                         <tr class="hover:bg-base-300">
-                            <th class="text text-primary">{{ str_pad($deposit->id, 5, "0", STR_PAD_LEFT) }}</th>
+                            <th class="text text-primary">{{ str_pad($deposit->id, 5, '0', STR_PAD_LEFT) }}</th>
                             <td>
                                 {{ $deposit->received_from }}
                             </td>
@@ -23,7 +23,7 @@
                             <td class="opacity-50">{{ date('d F Y', strtotime($deposit->created_at)) }}</td>
                             <td>
                                 <a href="{{ route('deposits.show', [$deposit->id]) }}" class="link link-info">
-                                    View
+                                    Details
                                 </a>
                             </td>
                         </tr>
