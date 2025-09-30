@@ -4,7 +4,7 @@
             <table class="table">
                 <thead class="bg-primary text-primary-content">
                     <tr>
-                        <th class="min-w-32">Deposit number</th>
+                        <th class="min-w-12">Deposit number</th>
                         <th>Received From</th>
                         <th class="text text-right">Amount</th>
                         <th class="w-56">Date</th>
@@ -14,7 +14,7 @@
                 <tbody>
                     @foreach ($deposits as $deposit)
                         <tr class="hover:bg-base-300">
-                            <th class="text text-primary">{{ $deposit->id }}</th>
+                            <th class="text text-primary">{{ str_pad($deposit->id, 5, "0", STR_PAD_LEFT) }}</th>
                             <td>
                                 {{ $deposit->received_from }}
                             </td>
