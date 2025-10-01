@@ -37,7 +37,7 @@
                     </div>
                     <div class="stat">
                         <div class="stat-title">Remarks</div>
-                        <textarea name="remarks" class="font-light outline-none stat-value text-lg"
+                        <textarea name="remarks" class=" font-normal outline-none stat-value text-lg"
                             placeholder="Say something about this deposit"></textarea>
                     </div>
                 </div>
