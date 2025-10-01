@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="p-10">
+    <div class="p-10 pl-20 pr-20">
 
         <div class="bg-base-100 shadow-2xl p-3 rounded-box">
 
