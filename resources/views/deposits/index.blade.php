@@ -17,7 +17,7 @@
                     </div>
                     <div class="stat-actions mt-2">
                         <a href="{{ route('deposits.create') }}" class="btn btn-xs btn-success btn-block btn-soft">
-                            Deposit
+                            Make a deposit
                         </a>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                                 {{ str_pad($deposit->id, 5, '0', STR_PAD_LEFT) }}
 
                                 @if ($deposit->id == session('deposit-new'))
-                                    <div class="badge badge-soft badge-success">Latest</div>
+                                    <div class="badge badge-soft badge-info">Latest</div>
                                 @endif
                             </th>
                             <td>

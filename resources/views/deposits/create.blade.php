@@ -8,19 +8,19 @@
                 <div class="stats">
                     <div class="stat">
                         <div class="stat-title">Date</div>
-                        <input type="datetime-local" class="stat-value text-sm outline-none text-primary" name="created_at"
-                            value="{{ now() }}" />
+                        <input type="datetime-local" class="stat-value text-sm outline-none text-secondary"
+                            name="created_at" value="{{ now() }}" />
                     </div>
                 </div>
-                <div class="divider divider-primary mt-0.5"></div>
+                <div class="divider divider-secondary mt-0.5"></div>
                 <div class="stats stats-vertical w-full">
                     <div class="stat">
                         <div class="stat-figure text-secondary">
                             <x-user></x-user>
                         </div>
                         <div class="stat-title">Received from</div>
-                        <input type="text" class="stat-value outline-none text-secondary"
-                            placeholder="ex. John Smith" name="received_from" />
+                        <input type="text" class="stat-value outline-none text-primary" placeholder="ex. John Smith"
+                            name="received_from" />
                         <div class="stat-desc">Depositor</div>
                     </div>
                     <div class="stat">
