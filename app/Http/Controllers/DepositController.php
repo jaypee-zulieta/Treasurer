@@ -48,7 +48,7 @@ class DepositController extends Controller
     {
         $validated = $request->validate([
             "received_from" => "string|required|max:255|min:3",
-            "amount" => "numeric|required|min:1",
+            "amount" => "numeric|required|min:0.01",
             "remarks" => "string|nullable",
             "created_at" => "date|nullable"
         ]);
