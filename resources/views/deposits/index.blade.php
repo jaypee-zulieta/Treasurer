@@ -15,7 +15,7 @@
                     </div>
                     <div class="stat-title">Total amount deposited</div>
                     <div class="stat-value text-success">
-                        <x-peso></x-peso> {{ number_format($total, 2, '.', ',') }}
+                        <x-peso></x-peso> {{ $total }}
                     </div>
                     <div class="stat-actions mt-2">
                         <a href="{{ route('deposits.create') }}" class="btn btn-xs btn-success btn-block btn-soft">

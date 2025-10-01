@@ -14,7 +14,7 @@ class DepositController extends Controller
      */
     public function index(Request $request): View
     {
-        $total = Deposit::sum('amount');
+        $total = $this->compressNumber(Deposit::sum('amount'), 2);
         $searchParam = $request->query('search');
 
         if ($searchParam) {
@@ -91,5 +91,23 @@ class DepositController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    private function compressNumber($num, $precision = 2) {
+        $num = (float) str_replace(',', '', $num);
+
+        if ($num >= 1000000000) {
+            $formatted = $num / 1000000000;
+            $suffix = 'B';
+        } elseif ($num >= 1000000) {
+            $formatted = $num / 1000000;
+            $suffix = 'M';
+        } else {
+            // ✅ Format normally with commas if below 1M
+            return number_format($num, 2, '.', ',');
+        }
+
+        // round and remove trailing zeros
+        return rtrim(rtrim(number_format($formatted, $precision, '.', ''), '0'), '.') . $suffix;
     }
 }
