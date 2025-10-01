@@ -22,9 +22,8 @@
                     <span aria-hidden="true">«</span>
                 </button>
             @else
-                <button class="join-item btn">
-                    <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">«</a>
-                </button>
+                <a class="join-item btn" href="{{ $paginator->previousPageUrl() }}" rel="prev"
+                    aria-label="@lang('pagination.previous')">«</a>
             @endif
 
             {{-- Pagination Elements --}}
@@ -53,13 +52,12 @@
 
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
-                <button class="join-item btn">
-                    <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">»</a>
-                </button>
+                <a class="joint-item btn" href="{{ $paginator->nextPageUrl() }}" rel="next"
+                    aria-label="@lang('pagination.next')">»</a>
             @else
-                <button class="join-item btn btn-disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+                <a class="join-item btn btn-disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
                     <span aria-hidden="true">»</span>
-                </button>
+                </a>
             @endif
         @endif
 
