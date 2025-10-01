@@ -42,7 +42,7 @@
                                 {{ str_pad($deposit->id, 5, '0', STR_PAD_LEFT) }}
 
                                 @if ($deposit->id == session('deposit-new'))
-                                    <div class="badge badge-soft badge-info">Latest</div>
+                                    <div class="badge badge-soft badge-info">New</div>
                                 @endif
                             </th>
                             <td>
