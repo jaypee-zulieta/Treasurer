@@ -1,11 +1,13 @@
 <x-layout>
+
+
     <div class="p-10">
         @if (session('deposit-new'))
             <x-alert-success>
                 Deposit {{ str_pad(session('deposit-new'), 5, '0', STR_PAD_LEFT) }} successfully made!
             </x-alert-success>
         @endif
-        <div class="mb-10">
+        <div class="mb-10 flex">
             <div class="stats shadow">
                 <div class="stat">
                     <div class="stat-figure text-success">
@@ -22,6 +24,22 @@
                     </div>
                 </div>
             </div>
+            <div class="flex-1"></div>
+            <div class="flex-1 flex flex-col">
+                <div class="flex-1"></div>
+                <form class="" action="{{ route('deposits.index') }}" method="GET">
+                    <div class="join w-full">
+                        <label class="input w-full join-item">
+                            <x-search-icon></x-search-icon>
+                            <input type="text" name="search" value="{{ old('search', $search ?? '') }}"
+                                placeholder="Search">
+                        </label>
+                        <button class="join-item btn btn-secondary">Search</button>
+                    </div>
+
+                </form>
+            </div>
+
         </div>
         <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 shadow-2xl">
             <table class="table">
@@ -62,7 +80,7 @@
             </table>
         </div>
         <div class="mt-10">
-            {{ $deposits->links() }}
+            {{ $deposits->withQueryString()->links() }}
         </div>
 
     </div>
