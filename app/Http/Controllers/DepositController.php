@@ -29,7 +29,11 @@ class DepositController extends Controller
         }
             
         $deposits = Deposit::orderBy('created_at', 'desc')->paginate(20);
-        return view('deposits.index', ["deposits" => $deposits, "total" => $total, "search" => $searchParam]);
+        return view('deposits.index', [
+            "deposits" => $deposits, 
+            "total" => $total, 
+            "search" => $searchParam
+        ]);
     }
 
     /**
