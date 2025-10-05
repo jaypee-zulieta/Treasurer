@@ -59,7 +59,19 @@
                 <div class="pb-10 flex">
                     <div class="flex-1">
                     </div>
-                    <button class="btn btn-wide btn-primary">Save</button>
+                    <div class="join">
+                        <button class="btn btn-info join-item w-32 btn-soft">
+                            <x-pencil-icon></x-pencil-icon>
+                            Save
+                        </button>
+
+                        <a href="{{ route('deposits.show', [$deposit->id]) }}"
+                            class="btn btn-error join-item w-32 btn-soft">
+                            <x-cross-icon></x-cross-icon>
+                            Cancel
+                        </a>
+                    </div>
+
                 </div>
 
             </form>

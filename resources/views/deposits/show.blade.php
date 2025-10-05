@@ -55,11 +55,11 @@
 
                     <div class="join">
                         <a href="{{ route('deposits.edit', [$deposit->id]) }}"
-                            class="btn btn-info btn-soft join-item btn-sm">
+                            class="btn btn-info btn-soft join-item w-32">
                             <x-pencil-icon></x-pencil-icon>
                             Edit
                         </a>
-                        <button class="btn btn-soft btn-error join-item btn-sm">
+                        <button class="btn btn-soft btn-error join-item w-32">
                             <x-trash-icon></x-trash-icon>
                             Delete
                         </button>
