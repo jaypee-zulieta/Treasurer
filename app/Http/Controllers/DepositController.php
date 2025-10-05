@@ -64,9 +64,10 @@ class DepositController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Deposit $deposit): View
     {
         //
+        return view('deposits.show', ["deposit" => $deposit]);
     }
 
     /**
