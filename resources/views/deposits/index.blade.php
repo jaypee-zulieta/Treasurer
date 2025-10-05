@@ -62,29 +62,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($deposits as $deposit)
-                        <tr class="hover:bg-base-300">
-                            <th class="text text-primary">
-
-                                {{ str_pad($deposit->id, 5, '0', STR_PAD_LEFT) }}
-
-                                @if ($deposit->id == session('deposit-new'))
-                                    <div class="badge badge-soft badge-info">New</div>
-                                @endif
-                            </th>
-                            <td>
-                                {{ $deposit->received_from }}
-                            </td>
-                            <td class="text text-right text-success font-bold"><x-peso></x-peso>
-                                {{ number_format($deposit->amount, 2, '.', ',') }}</td>
-                            <td class="opacity-50">{{ date('d F Y', strtotime($deposit->created_at)) }}</td>
-                            <td>
-                                <a href="{{ route('deposits.show', [$deposit->id]) }}" class="link link-info">
-                                    Details
-                                </a>
+                    @if ($deposits->isEmpty())
+                        <tr>
+                            <td colspan="5" class="text-center text-lg p-10 opacity-50">
+                                No deposits found.
                             </td>
                         </tr>
-                    @endforeach
+                    @else
+                        @foreach ($deposits as $deposit)
+                            <tr class="hover:bg-base-300">
+                                <th class="text text-primary">
+
+                                    {{ str_pad($deposit->id, 5, '0', STR_PAD_LEFT) }}
+
+                                    @if ($deposit->id == session('deposit-new'))
+                                        <div class="badge badge-soft badge-info">New</div>
+                                    @endif
+                                </th>
+                                <td>
+                                    {{ $deposit->received_from }}
+                                </td>
+                                <td class="text text-right text-success font-bold"><x-peso></x-peso>
+                                    {{ number_format($deposit->amount, 2, '.', ',') }}</td>
+                                <td class="opacity-50">{{ date('d F Y', strtotime($deposit->created_at)) }}</td>
+                                <td>
+                                    <a href="{{ route('deposits.show', [$deposit->id]) }}" class="link link-info">
+                                        Details
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+
                 </tbody>
             </table>
         </div>
