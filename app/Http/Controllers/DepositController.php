@@ -89,10 +89,12 @@ class DepositController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Deposit $deposit): RedirectResponse
     {
-        //
+        $deposit->delete();
+        return to_route('deposits.index')->with(["deposit-deleted" => $deposit->id]);
     }
+    
 
     private function compressNumber($num, $precision = 2) {
         $num = (float) str_replace(',', '', $num);

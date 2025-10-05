@@ -6,7 +6,12 @@
             <x-alert-success>
                 Deposit {{ str_pad(session('deposit-new'), 5, '0', STR_PAD_LEFT) }} successfully made!
             </x-alert-success>
+        @elseif(session('deposit-deleted'))
+            <x-alert-success>
+                Deposit {{ str_pad(session('deposit-deleted'), 5, '0', STR_PAD_LEFT) }} successfully deleted!
+            </x-alert-success>
         @endif
+
         <div class="mb-10 flex">
             <div class="stats shadow">
                 <div class="stat">
