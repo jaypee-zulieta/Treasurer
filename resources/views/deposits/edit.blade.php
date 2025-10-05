@@ -44,7 +44,7 @@
                     </div>
                     <div class="stat">
                         <div class="stat-title">Remarks</div>
-                        <textarea name="remarks" class=" font-normal outline-none stat-value text-lg"
+                        <textarea name="remarks" class=" font-normal outline-none stat-value text-lg text-wrap"
                             placeholder="Say something about this deposit">{{ $deposit->remarks }}</textarea>
                     </div>
                 </div>
