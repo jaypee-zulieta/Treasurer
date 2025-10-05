@@ -73,17 +73,26 @@ class DepositController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Deposit $deposit)
     {
         //
+        return view('deposits.edit', ["deposit" => $deposit]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Deposit $deposit)
     {
-        //
+        $validated = $request->validate([
+            "received_from" => "string|required|max:255|min:3",
+            "amount" => "numeric|required|min:0.01",
+            "remarks" => "string|nullable",
+            "created_at" => "date|nullable"
+        ]);
+
+        $deposit->update($validated);
+        return to_route('deposits.index')->with(["deposit-updated" => $deposit->id]);
     }
 
     /**
