@@ -37,7 +37,7 @@ class UserController extends Controller
         ]);
 
         User::create($validated);
-        return redirect('/');
+        return to_route('login')->with(['success' => 'Account successfully created!']);
     }
 
     /**

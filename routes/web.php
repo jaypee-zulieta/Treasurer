@@ -9,8 +9,16 @@ Route::get('/', function () {
     return to_route('deposits.index');
 });
 
-Route::resource('deposits', DepositController::class);
-Route::resource('users', UserController::class);
+Route::middleware('auth')->group(function () {
+    Route::resource('deposits', DepositController::class);
+
+    // Auth
+    Route::delete('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
 // Auth
 Route::get('/login', [LoginController::class, 'show'])->name('login');
