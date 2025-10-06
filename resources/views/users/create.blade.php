@@ -20,21 +20,19 @@
                         <div class="opacity-50">
                             <x-id-icon></x-id-icon>
                         </div>
-                        <input type="text" name="username" placeholder="Enter username (ex. Noobmaster69)"
-                            value="{{ old('username') }}">
+                        <input type="text" name="username" placeholder="Username" value="{{ old('username') }}">
                     </label>
                     <label for="" class="input w-full rounded-none">
                         <div class="opacity-50">
                             <x-user-icon></x-user-icon>
                         </div>
-                        <input type="text" name="name" placeholder="Enter name (ex. John Smith)"
-                            value="{{ old('name') }}">
+                        <input type="text" name="name" placeholder="Name" value="{{ old('name') }}">
                     </label>
                     <label for="" class="input w-full rounded-none">
                         <div class="opacity-50">
                             <x-key-icon></x-key-icon>
                         </div>
-                        <input type="password" name="password" placeholder="Enter password">
+                        <input type="password" name="password" placeholder="Password">
                     </label>
                     <label for="" class="input w-full rounded-none">
                         <div class="opacity-50">
@@ -59,7 +57,8 @@
 
             <div class="divider"></div>
             <div>
-                <p>Already have an account? Click <a href="" class="link link-secondary">here</a></p>
+                <p>Already have an account? Click <a href="{{ route('login') }}" class="link link-secondary">here</a>
+                </p>
             </div>
         </div>
     </div>
